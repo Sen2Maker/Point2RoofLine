@@ -215,7 +215,7 @@ def process_data_root(
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Convert Point2Contour segments into compact wireframes.",
+        description="Convert Point2RoofLine segments into compact wireframes.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
     parser.add_argument("--data-root", type=Path, default=TARGET_DATA_ROOT, help="Inference run, scene directory, or segment OBJ file")

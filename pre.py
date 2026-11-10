@@ -386,7 +386,7 @@ def load_end2end_model(log_path, device, checkpoint='final'):
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Run Point2Contour inference on a prepared dataset.",
+        description="Run Point2RoofLine inference on a prepared dataset.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
     parser.add_argument("--data-root", required=True, help="Prepared dataset directory")

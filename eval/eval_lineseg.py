@@ -297,7 +297,7 @@ def parse_prediction(value):
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Evaluate the Point2Contour metrics reported in the paper.",
+        description="Evaluate the Point2RoofLine metrics reported in the paper.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
     parser.add_argument("--target-dir", required=True, help="Directory containing scene subdirectories")

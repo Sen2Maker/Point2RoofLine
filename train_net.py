@@ -21,7 +21,7 @@ np.random.seed(2024)
 random.seed(2024)
 
 def make_args_parser():
-    parser = argparse.ArgumentParser("Point2Contour training")
+    parser = argparse.ArgumentParser("Point2RoofLine training")
 
     parser.add_argument('-c', '--config', default="config/default_model.yaml", type=str, help='Configuration file')
 

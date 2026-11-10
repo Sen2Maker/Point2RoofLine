@@ -2,7 +2,7 @@
   "status": "inference_state_provided_in_separate_review_bundle",
   "runtime_asset": {
     "filename": "frozen_editors_numeric.npz",
-    "bundle_directory": "Point2Contour-postprocessing-assets",
+    "bundle_directory": "Point2RoofLine-postprocessing-assets",
     "sha256": "5725f24d0e4598dd7f52f6b0df48470e9866dd61edb68c9df561ff143477959b",
     "bytes": 485041,
     "description": "Inference-reachable state extracted from the six original assets listed below. Their original files are not duplicated inside the source-only repository."

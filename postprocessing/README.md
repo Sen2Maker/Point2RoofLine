@@ -34,7 +34,7 @@ estimator replacement.
 python -m postprocessing.reconstruct \
   --input /path/to/results/roof/input.npz \
   --distributions /path/to/results/roof/distributions.npz \
-  --assets /path/to/Point2Contour-postprocessing-assets \
+  --assets /path/to/Point2RoofLine-postprocessing-assets \
   --output /path/to/results/roof/structured.obj
 ```
 

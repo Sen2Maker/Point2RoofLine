@@ -549,7 +549,7 @@ def process_data_root(
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Filter Point2Contour query corners and their derived line clouds.",
+        description="Filter Point2RoofLine query corners and their derived line clouds.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
     parser.add_argument(

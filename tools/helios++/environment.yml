@@ -1,4 +1,4 @@
-name: point2contour-helios
+name: point2roofline-helios
 channels:
   - conda-forge
 dependencies:

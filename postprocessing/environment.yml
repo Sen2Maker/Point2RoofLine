@@ -1,4 +1,4 @@
-name: point2contour-network-postprocessing-dependencies
+name: point2roofline-network-postprocessing-dependencies
 channels:
   - defaults
 dependencies:

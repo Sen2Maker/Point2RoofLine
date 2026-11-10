@@ -1,4 +1,4 @@
-# Point2Contour
+# Point2RoofLine
 
 Building Rooftop Contouring from Airborne Laser Scanning Point Clouds.
 
@@ -20,18 +20,18 @@ the reconstruction README for the verified dependency versions and numeric asset
 
 ## Pipeline
 
-![](./Point2Contour_pipeline.png)
+![](./Point2RoofLine_pipeline.png)
 
 ## Requirements
 
 (1) It is recommended to install this model in an isolated Conda environment with Python 3.9:
 
 ```bash
-git clone https://github.com/Sen2Maker/Point2Contour.git
-cd Point2Contour
+git clone https://github.com/Sen2Maker/Point2RoofLine.git
+cd Point2RoofLine
 
-conda create -n point2contour python=3.9.23 -y
-conda activate point2contour
+conda create -n point2roofline python=3.9.23 -y
+conda activate point2roofline
 ```
 
 (2) This model was developed and tested with CUDA 12.6 and PyTorch 2.6.0. The corresponding PyTorch environment can be quickly installed as follows.
@@ -83,7 +83,7 @@ results/
 
 ```bash
 # Activate the environment
-conda activate point2contour
+conda activate point2roofline
 
 # Run inference on a single XYZ point cloud.
 python pre_fromxyz.py \
@@ -118,11 +118,11 @@ We use the Tallinn and Tokyo roof datasets. Both can be requested from the [Buil
 
 (1) **Tallinn** is the largest city subset of Building3D and is constructed from real aerial LiDAR data. Download **Tallinn City: Roof Point Clouds & Wireframe**, which provides an individual roof point cloud and its annotated wireframe for each building.
 
-(2) **Tokyo LoD2** is a subset of BuildingWorld distributed through the same download page. It contains individual colored point clouds sampled from LoD2 building models, together with wireframes and mesh models. Download **Tokyo LoD2 Dataset**; Point2Contour only requires its roof point clouds and wireframes.
+(2) **Tokyo LoD2** is a subset of BuildingWorld distributed through the same download page. It contains individual colored point clouds sampled from LoD2 building models, together with wireframes and mesh models. Download **Tokyo LoD2 Dataset**; Point2RoofLine only requires its roof point clouds and wireframes.
 
 The synthetic Woerden transfer dataset is prepared separately from 3DBAG data using HELIOS++. Its complete acquisition and generation procedure is provided in [`tools/helios++/README.md`](tools/helios++/README.md).
 
-For both datasets, the files used by Point2Contour are stored by building ID in the following Building3D format:
+For both datasets, the files used by Point2RoofLine are stored by building ID in the following Building3D format:
 
 ```text
 dataset/
@@ -139,7 +139,7 @@ dataset/
         └── <id_4>.xyz
 ```
 
-To train Point2Contour on a custom dataset, organize it in the same Building3D format before preprocessing.
+To train Point2RoofLine on a custom dataset, organize it in the same Building3D format before preprocessing.
 
 ## Training and Predicting
 
@@ -252,7 +252,7 @@ current learned-and-geometric reconstruction described in
 [`postprocessing/README.md`](postprocessing/README.md). Do not interchange their
 outputs when reproducing reported wireframe results.
 
-The primary output of Point2Contour is the predicted line cloud. For applications that require an explicit roof graph, `tools/post.py` can further convert it into a compact wireframe. The postprocessor clusters nearby endpoints, aggregates repeated segment evidence, and applies geometric and point-support constraints to construct candidate edges.
+The primary output of Point2RoofLine is the predicted line cloud. For applications that require an explicit roof graph, `tools/post.py` can further convert it into a compact wireframe. The postprocessor clusters nearby endpoints, aggregates repeated segment evidence, and applies geometric and point-support constraints to construct candidate edges.
 
 ```bash
 python tools/post.py --data-root res_pre/point_cloud_20260812_190000

@@ -1,6 +1,6 @@
-# 使用 HELIOS++ 从 3DBAG 构建 Point2Contour 数据
+# 使用 HELIOS++ 从 3DBAG 构建 Point2RoofLine 数据
 
-本目录用于复现 Point2Contour 使用的 Woerden 合成迁移数据。目录中只包含脚本、固定的 3DBAG 瓦片清单和环境信息，不包含 3DBAG 原始模型、HELIOS++ 本体、仿真点云或生成的线框。
+本目录用于复现 Point2RoofLine 使用的 Woerden 合成迁移数据。目录中只包含脚本、固定的 3DBAG 瓦片清单和环境信息，不包含 3DBAG 原始模型、HELIOS++ 本体、仿真点云或生成的线框。
 
 完整流程如下：
 
@@ -35,7 +35,7 @@ dataset/
 
 本流程对原始数据的修改包括：选择 LoD2.2 屋顶面、派生屋顶线框，以及使用 HELIOS++ 仿真 LiDAR 回波。具体条款见 [3DBAG 版权说明](https://docs.3dbag.nl/en/copyright/) 和 [官方 OBJ 文档](https://docs.3dbag.nl/en/delivery/obj/)。
 
-HELIOS++ 通过官方渠道单独安装，采用 GPL-3.0-or-later 与 LGPL-3.0-or-later 双许可，详见 [HELIOS++ 官方仓库](https://github.com/3dgeo-heidelberg/helios)。Point2Contour 不复制 HELIOS++ 的源码或二进制文件。
+HELIOS++ 通过官方渠道单独安装，采用 GPL-3.0-or-later 与 LGPL-3.0-or-later 双许可，详见 [HELIOS++ 官方仓库](https://github.com/3dgeo-heidelberg/helios)。Point2RoofLine 不复制 HELIOS++ 的源码或二进制文件。
 
 ## 固定的复现对象
 
@@ -55,11 +55,11 @@ HELIOS++ 通过官方渠道单独安装，采用 GPL-3.0-or-later 与 LGPL-3.0-o
 
 ## 1. 安装 HELIOS++
 
-HELIOS++ 官方推荐使用 Conda。在 Point2Contour 根目录执行：
+HELIOS++ 官方推荐使用 Conda。在 Point2RoofLine 根目录执行：
 
 ```bash
 conda env create -f "tools/helios++/environment.yml"
-conda activate point2contour-helios
+conda activate point2roofline-helios
 helios --version
 helios --test
 ```
@@ -128,7 +128,7 @@ woerden/
 先运行三个场景进行冒烟测试：
 
 ```bash
-conda activate point2contour-helios
+conda activate point2roofline-helios
 python "tools/helios++/03_run_helios.py" \
   --prepared-dir /path/to/woerden_work/woerden/train \
   --max-scenes 3
@@ -167,7 +167,7 @@ python "tools/helios++/03_run_helios.py" \
 | 轨迹间隔 | 0.05 s |
 | HELIOS++ 线程数 | 8 |
 
-仿真阶段始终保留真实米制坐标，不平移、不缩放。Point2Contour 会在数据预处理或原始 XYZ 前向时执行自己的逐场景归一化。
+仿真阶段始终保留真实米制坐标，不平移、不缩放。Point2RoofLine 会在数据预处理或原始 XYZ 前向时执行自己的逐场景归一化。
 
 ## 5. 验证最终数据
 
@@ -181,7 +181,7 @@ python "tools/helios++/04_verify_dataset.py" \
 
 脚本检查 XYZ 有限坐标、OBJ 索引、退化边、缺失配对和预期场景数量，并写出 `metadata/validation.csv` 与 `metadata/validation.json`。发现问题时返回非零退出码。
 
-## 6A. 准备 Point2Contour 训练数据
+## 6A. 准备 Point2RoofLine 训练数据
 
 如果要用合成数据进行监督训练，从父级数据集目录运行集成预处理：
 

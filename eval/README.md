@@ -1,6 +1,6 @@
 # Line-cloud Evaluation
 
-`eval_lineseg.py` evaluates the Point2Contour line-cloud output using the seven metrics reported in the paper. It evaluates every scene independently and then computes the unweighted mean of the scene-level results.
+`eval_lineseg.py` evaluates the Point2RoofLine line-cloud output using the seven metrics reported in the paper. It evaluates every scene independently and then computes the unweighted mean of the scene-level results.
 
 ## Input Layout
 

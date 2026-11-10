@@ -101,7 +101,7 @@ def ensure_pre2obj_loaded():
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Run Point2Contour inference on raw XYZ files.",
+        description="Run Point2RoofLine inference on raw XYZ files.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
     parser.add_argument("--xyz-root", required=True, help="XYZ file or directory containing XYZ files")

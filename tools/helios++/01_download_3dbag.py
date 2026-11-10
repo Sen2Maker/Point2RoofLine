@@ -109,7 +109,7 @@ def download_one(url, destination, timeout, retries):
     partial = destination.with_suffix(destination.suffix + ".part")
     request = urllib.request.Request(
         url,
-        headers={"User-Agent": "Point2Contour-3DBAG-reproduction/1.0"},
+        headers={"User-Agent": "Point2RoofLine-3DBAG-reproduction/1.0"},
     )
     last_error = None
     for attempt in range(1, retries + 1):

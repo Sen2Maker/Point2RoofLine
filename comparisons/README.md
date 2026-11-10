@@ -1,6 +1,6 @@
 # Comparison recipes
 
-These recipes keep external implementations separate from Point2Contour.
+These recipes keep external implementations separate from Point2RoofLine.
 No third-party comparison source code or pretrained weights are bundled here.
 Xin2024 remains an independent reproduction maintained in its separate repository;
 this directory only selects its configuration and invokes its entry point.

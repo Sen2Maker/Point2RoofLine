@@ -1,14 +1,14 @@
 # Woerden Data Preparation with HELIOS++
 
-These scripts reproduce the synthetic Woerden dataset used in Point2Contour. They download the fixed 3DBAG tiles, extract roof geometry, simulate airborne laser scanning with HELIOS++, and create paired point clouds and wireframes.
+These scripts reproduce the synthetic Woerden dataset used in Point2RoofLine. They download the fixed 3DBAG tiles, extract roof geometry, simulate airborne laser scanning with HELIOS++, and create paired point clouds and wireframes.
 
-Run all commands from the Point2Contour project root.
+Run all commands from the Point2RoofLine project root.
 
 ## 1. Install HELIOS++
 
 ```bash
 conda env create -f "tools/helios++/environment.yml"
-conda activate point2contour-helios
+conda activate point2roofline-helios
 helios --version
 ```
 
@@ -57,10 +57,10 @@ woerden/
 
 ## 3. Use the Dataset
 
-To prepare it for training, return to the Point2Contour environment and run:
+To prepare it for training, return to the Point2RoofLine environment and run:
 
 ```bash
-conda activate point2contour
+conda activate point2roofline
 
 python data_pare.py \
   --data-root "$WORK_DIR/woerden" \
@@ -70,7 +70,7 @@ python data_pare.py \
 To run the pretrained Tallinn model directly on the generated XYZ files:
 
 ```bash
-conda activate point2contour
+conda activate point2roofline
 
 python pre_fromxyz.py \
   --xyz-root "$WORK_DIR/woerden/train/xyz" \

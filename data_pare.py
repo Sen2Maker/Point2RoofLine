@@ -606,7 +606,7 @@ def main(dataset_root, output_path):
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Prepare Point2Contour training data.",
+        description="Prepare Point2RoofLine training data.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
     parser.add_argument(
